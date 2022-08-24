@@ -26,22 +26,71 @@ function useScrollSpy(selectors: string[], options?: IntersectionObserverInit) {
 }
 
 const StyledTOC = styled('div', {
+  variants: {
+    type: {
+      dot: {
+        $$hoverColor: '$colors$white',
+        $$textColor: '$colors$gray',
+      },
+      normal: {
+        $$hoverColor: '$colors$white',
+        $$textColor: '$colors$gray',
+      },
+    },
+  },
+  defaultVariants: {
+    type: 'dot',
+  },
   // TODO: configable
   position: 'fixed',
   right: '$0',
   top: '$0',
+  '.mayumi-text': {
+    opacity: 0,
+  },
+  '&:hover': {
+    '.mayumi-text': {
+      opacity: 1,
+    },
+  },
   '.item': {
     cursor: 'pointer',
     transition: '$colors',
-    color: '$gray',
+    color: '$$textColor',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '$1',
+    '.mayumi-text': {
+      color: 'inherit',
+    },
   },
   '.item.active': {
-    color: '$white',
+    color: '$$hoverColor',
+    '.item-dot': {
+      backgroundColor: '$white',
+    },
   },
   '.item:hover': {
-    color: '$white',
+    color: '$$hoverColor',
+  },
+  '.item-dot': {
+    transition: '$colors',
+    display: 'inline-block',
+    w: '$2',
+    h: '$2',
+    rounded: '$full',
+    backgroundColor: '$gray',
   },
 })
+
+const Item = ({ className, ...props }: React.LiHTMLAttributes<{}>) => {
+  return (
+    <li className={clsx('item', className)} {...props}>
+      <span className="item-dot" />
+      {props.children}
+    </li>
+  )
+}
 
 const headings = ['#title-1', '#title-2']
 
@@ -61,11 +110,15 @@ const TOC = () => {
       <ul>
         {headings.map((h) => {
           return (
-            <li onClick={() => handleClickItem(h)} key={h}>
-              <Text className={clsx('item', { active: `#${activeId}` === h })} p={true} size="sm">
+            <Item
+              className={clsx({ active: `#${activeId}` === h })}
+              onClick={() => handleClickItem(h)}
+              key={h}
+            >
+              <Text p={true} size="sm">
                 {h}
               </Text>
-            </li>
+            </Item>
           )
         })}
       </ul>
