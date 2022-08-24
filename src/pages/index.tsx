@@ -38,6 +38,9 @@ const StyledTOC = styled('div', {
   '.item.active': {
     color: '$white',
   },
+  '.item:hover': {
+    color: '$white',
+  },
 })
 
 const headings = ['#title-1', '#title-2']
