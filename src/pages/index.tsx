@@ -26,12 +26,12 @@ function useScrollSpy(selectors: string[], options?: IntersectionObserverInit) {
 }
 
 const StyledTOC = styled('div', {
+  $$hoverColor: '$colors$white',
+  $$textColor: '$colors$gray',
   variants: {
     type: {
       dot: {
-        $$hoverColor: '$colors$white',
-        $$textColor: '$colors$gray',
-        '.toc-dot': {
+        '.toc-item-prefix': {
           display: 'inline-block',
           transition: '$colors',
           w: '$2',
@@ -40,10 +40,18 @@ const StyledTOC = styled('div', {
           backgroundColor: '$gray',
         },
       },
+      line: {
+        '.toc-item-prefix': {
+          display: 'inline-block',
+          transition: '$colors',
+          w: '$4',
+          h: '$1_5',
+          rounded: '$full',
+          backgroundColor: '$gray',
+        },
+      },
       normal: {
-        $$hoverColor: '$colors$white',
-        $$textColor: '$colors$gray',
-        '.toc-dot': {
+        '.toc-item-prefix': {
           display: 'none',
         },
       },
@@ -77,7 +85,7 @@ const StyledTOC = styled('div', {
   },
   '.toc-item.active': {
     color: '$$hoverColor',
-    '.toc-dot': {
+    '.toc-item-prefix': {
       backgroundColor: '$white',
     },
   },
@@ -89,7 +97,7 @@ const StyledTOC = styled('div', {
 const Item = ({ className, ...props }: React.LiHTMLAttributes<{}>) => {
   return (
     <li className={clsx('toc-item', className)} {...props}>
-      <span className="toc-dot" />
+      <span className="toc-item-prefix" />
       {props.children}
     </li>
   )
@@ -109,7 +117,7 @@ const TOC = () => {
   }
   console.log(`#${activeId}`)
   return (
-    <StyledTOC>
+    <StyledTOC type="line">
       <ul>
         {headings.map((h) => {
           return (
