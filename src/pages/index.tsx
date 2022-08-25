@@ -31,10 +31,21 @@ const StyledTOC = styled('div', {
       dot: {
         $$hoverColor: '$colors$white',
         $$textColor: '$colors$gray',
+        '.toc-dot': {
+          display: 'inline-block',
+          transition: '$colors',
+          w: '$2',
+          h: '$2',
+          rounded: '$full',
+          backgroundColor: '$gray',
+        },
       },
       normal: {
         $$hoverColor: '$colors$white',
         $$textColor: '$colors$gray',
+        '.toc-dot': {
+          display: 'none',
+        },
       },
     },
   },
@@ -53,7 +64,7 @@ const StyledTOC = styled('div', {
       opacity: 1,
     },
   },
-  '.item': {
+  '.toc-item': {
     cursor: 'pointer',
     transition: '$colors',
     color: '$$textColor',
@@ -64,29 +75,21 @@ const StyledTOC = styled('div', {
       color: 'inherit',
     },
   },
-  '.item.active': {
+  '.toc-item.active': {
     color: '$$hoverColor',
-    '.item-dot': {
+    '.toc-dot': {
       backgroundColor: '$white',
     },
   },
-  '.item:hover': {
+  '.toc-item:hover': {
     color: '$$hoverColor',
-  },
-  '.item-dot': {
-    transition: '$colors',
-    display: 'inline-block',
-    w: '$2',
-    h: '$2',
-    rounded: '$full',
-    backgroundColor: '$gray',
   },
 })
 
 const Item = ({ className, ...props }: React.LiHTMLAttributes<{}>) => {
   return (
-    <li className={clsx('item', className)} {...props}>
-      <span className="item-dot" />
+    <li className={clsx('toc-item', className)} {...props}>
+      <span className="toc-dot" />
       {props.children}
     </li>
   )
