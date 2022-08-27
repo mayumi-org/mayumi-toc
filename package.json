@@ -29,6 +29,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rimraf dist && rollup -c --silent",
+    "play": "pnpm --filter=./playground dev",
     "dev": "rollup -c -w --silent",
     "test": "vitest",
     "pretest": "pnpm run build",
