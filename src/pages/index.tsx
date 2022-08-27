@@ -26,8 +26,9 @@ function useScrollSpy(selectors: string[], options?: IntersectionObserverInit) {
 }
 
 const StyledTOC = styled('div', {
-  $$hoverColor: '$colors$white',
-  $$textColor: '$colors$gray',
+  $$hoverColor: 'rgb(127, 127, 127)',
+  $$hoverTextColor: '$colors$white',
+  $$textColor: 'rgb(55, 55, 55)',
   variants: {
     type: {
       dot: {
@@ -37,7 +38,10 @@ const StyledTOC = styled('div', {
           w: '$2',
           h: '$2',
           rounded: '$full',
-          backgroundColor: '$gray',
+          backgroundColor: '$$textColor',
+        },
+        '.toc-item-content': {
+          opacity: 0,
         },
       },
       line: {
@@ -45,14 +49,54 @@ const StyledTOC = styled('div', {
           display: 'inline-block',
           transition: '$colors',
           w: '$4',
-          h: '$1_5',
+          h: '$1',
           rounded: '$full',
-          backgroundColor: '$gray',
+          backgroundColor: '$$textColor',
+        },
+        '.toc-item-content': {
+          opacity: 0,
+        },
+      },
+      placeholder: {
+        '.toc-item-prefix': {
+          display: 'none',
+        },
+        '.toc-item-content': {
+          position: 'relative',
+          opacity: 1,
+          '&:hover': {
+            '.mayumi-text': {
+              opacity: 1,
+            },
+            '.toc-item-placeholder': {
+              opacity: 0,
+            },
+          },
+        },
+        '.mayumi-text': {
+          transition: '$opacity',
+          opacity: 0,
+        },
+        '.toc-item-placeholder': {
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          margin: 'auto auto',
+          display: 'inline-block',
+          transition: '$all',
+          w: '$8',
+          h: '$1',
+          rounded: '$full',
+          backgroundColor: '$$textColor',
+          opacity: 1,
         },
       },
       normal: {
         '.toc-item-prefix': {
           display: 'none',
+        },
+        '.toc-item-content': {
+          opacity: 0,
         },
       },
     },
@@ -60,15 +104,14 @@ const StyledTOC = styled('div', {
   defaultVariants: {
     type: 'dot',
   },
-  // TODO: configable
   position: 'fixed',
   right: '$0',
   top: '$0',
-  '.mayumi-text': {
-    opacity: 0,
+  '.toc-item-content': {
+    transition: '$opacity',
   },
   '&:hover': {
-    '.mayumi-text': {
+    '.toc-item-content': {
       opacity: 1,
     },
   },
@@ -77,8 +120,9 @@ const StyledTOC = styled('div', {
     transition: '$colors',
     color: '$$textColor',
     display: 'flex',
+    height: '$6',
     alignItems: 'center',
-    gap: '$1',
+    gap: '$3',
     '.mayumi-text': {
       color: 'inherit',
     },
@@ -86,11 +130,14 @@ const StyledTOC = styled('div', {
   '.toc-item.active': {
     color: '$$hoverColor',
     '.toc-item-prefix': {
-      backgroundColor: '$white',
+      backgroundColor: '$$hoverColor',
+    },
+    '.toc-item-placeholder': {
+      backgroundColor: '$$hoverColor',
     },
   },
   '.toc-item:hover': {
-    color: '$$hoverColor',
+    color: '$$hoverTextColor',
   },
 })
 
@@ -98,7 +145,10 @@ const Item = ({ className, ...props }: React.LiHTMLAttributes<{}>) => {
   return (
     <li className={clsx('toc-item', className)} {...props}>
       <span className="toc-item-prefix" />
-      {props.children}
+      <div className="toc-item-content">
+        <div className="toc-item-placeholder" />
+        {props.children}
+      </div>
     </li>
   )
 }
@@ -117,7 +167,7 @@ const TOC = () => {
   }
   console.log(`#${activeId}`)
   return (
-    <StyledTOC type="line">
+    <StyledTOC type="placeholder">
       <ul>
         {headings.map((h) => {
           return (
@@ -139,7 +189,7 @@ const TOC = () => {
 
 const Home = () => {
   return (
-    <div className="h-screen overflow-y-scroll bg-red-400">
+    <div className="h-screen overflow-y-scroll bg-black">
       <TOC />
       <div className="h-screen">
         <h1 className="text-white text-lg" id="title-1">
