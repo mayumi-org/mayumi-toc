@@ -1,4 +1,5 @@
-import React from 'react'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import React, { useCallback } from 'react'
 import clsx from 'clsx'
 import { styled } from 'mayumi/theme'
 import { Text } from 'mayumi/text'
@@ -153,18 +154,20 @@ const Item = ({ className, ...props }: React.LiHTMLAttributes<{}>) => {
   )
 }
 
-const headings = ['#title-1', '#title-2']
+type TOCProps = {
+  headings?: string[]
+}
 
-export const TOC = () => {
+export const TOC = ({ headings = [] }: TOCProps) => {
   const activeId = useScrollSpy(headings, {
     rootMargin: '0% 0% -24% 0%',
   })
-  const handleClickItem = (id: string) => {
+  const handleClickItem = useCallback((id: string) => {
     const el = document.querySelector(id)
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' })
     }
-  }
+  }, [])
   console.log(`#${activeId}`)
   return (
     <StyledTOC type="placeholder">
