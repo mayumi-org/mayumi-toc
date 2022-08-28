@@ -4,13 +4,13 @@
   "description": "mayumi-toc playground",
   "private": "true",
   "license": "MIT",
-  "homepage": "https://github.com/mayumi/mayui-toc#readme",
+  "homepage": "https://github.com/mayumi-org/mayui-toc#readme",
   "repository": {
-    "url": "git+https://github.com/mayumi/mayui-toc.git",
+    "url": "git+https://github.com/mayumi-org/mayui-toc.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/mayumi/mayui-toc/issues"
+    "url": "https://github.com/mayumi-org/mayui-toc/issues"
   },
   "author": {
     "name": "JiangWeixian",
