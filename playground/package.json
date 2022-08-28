@@ -4,13 +4,13 @@
   "description": "mayumi-toc playground",
   "private": "true",
   "license": "MIT",
-  "homepage": "https://github.com/neo-hack/vite-template#readme",
+  "homepage": "https://github.com/mayumi/mayui-toc#readme",
   "repository": {
-    "url": "git+https://github.com/neo-hack/vite-template.git",
+    "url": "git+https://github.com/mayumi/mayui-toc.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/neo-hack/vite-template/issues"
+    "url": "https://github.com/mayumi/mayui-toc/issues"
   },
   "author": {
     "name": "JiangWeixian",

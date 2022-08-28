@@ -168,7 +168,6 @@ export const TOC = ({ headings = [] }: TOCProps) => {
       el.scrollIntoView({ behavior: 'smooth' })
     }
   }, [])
-  console.log(`#${activeId}`)
   return (
     <StyledTOC type="placeholder">
       <ul>

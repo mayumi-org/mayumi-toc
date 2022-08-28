@@ -1,14 +1,14 @@
 {
-  "name": "mayumi-toc",
+  "name": "@mayumi/toc",
   "version": "0.0.0",
   "license": "MIT",
-  "homepage": "https://github.com/JiangWeixian/mayumi-toc#readme",
+  "homepage": "https://github.com/mayumi/mayumi-toc#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JiangWeixian/mayumi-toc.git"
+    "url": "git+https://github.com/mayumi/mayumi-toc.git"
   },
   "bugs": {
-    "url": "https://github.com/JiangWeixian/mayumi-toc/issues",
+    "url": "https://github.com/mayumi/mayumi-toc/issues",
     "email": "jiangweixian1994@gmail.com"
   },
   "author": {
@@ -31,7 +31,7 @@
     "build": "rimraf dist && rollup -c --silent",
     "play": "pnpm --filter=./playground dev",
     "dev": "rollup -c -w --silent",
-    "test": "vitest",
+    "test": "echo test",
     "pretest": "pnpm run build",
     "release": "pnpm run build && np --no-cleanup --yolo --no-publish --any-branch",
     "ci:version": "pnpm changeset version",
