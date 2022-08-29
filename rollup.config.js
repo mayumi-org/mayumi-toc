@@ -22,7 +22,7 @@ export default defineConfig([
        */
       externals({
         devDeps: false,
-        include: ['react', 'react-dom'],
+        include: ['react', 'react-dom', 'mayumi'],
       }),
       commonjs(),
       typescript({

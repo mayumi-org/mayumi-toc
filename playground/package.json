@@ -23,11 +23,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mayumi/toc": "workspace:*",
     "@tailwindcss/typography": "0.5.2",
     "clsx": "1.1.1",
     "daisyui": "^2.15.3",
     "mayumi": "^0.0.3",
-    "mayumi-toc": "workspace:*",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-router": "6.2.1",

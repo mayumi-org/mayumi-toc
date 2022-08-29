@@ -36,7 +36,6 @@ importers:
       vitest: 0.10.0
     dependencies:
       clsx: 1.1.1
-      mayumi: 0.0.3_sfoxds7t5ydpegc3knd667wn6m
     devDependencies:
       '@aiou/eslint-config': 0.5.1_izepnp3qvzoyehsij3wjkgf6qm
       '@changesets/cli': 2.21.1
@@ -51,6 +50,7 @@ importers:
       esrua: 0.2.1
       husky: 7.0.4
       lint-staged: 11.2.6
+      mayumi: 0.0.3_sfoxds7t5ydpegc3knd667wn6m
       prettier: 2.4.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -69,6 +69,7 @@ importers:
 
   playground:
     specifiers:
+      '@mayumi/toc': workspace:*
       '@tailwindcss/typography': 0.5.2
       '@types/react': ^17.0.33
       '@types/react-dom': ^17.0.10
@@ -78,7 +79,6 @@ importers:
       clsx: 1.1.1
       daisyui: ^2.15.3
       mayumi: ^0.0.3
-      mayumi-toc: workspace:*
       postcss: 8.4.14
       react: 17.0.2
       react-dom: 17.0.2
@@ -88,11 +88,11 @@ importers:
       vite: ^2.7.2
       vite-plugin-pages: ^0.24.0
     dependencies:
+      '@mayumi/toc': link:..
       '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.13
       clsx: 1.1.1
       daisyui: 2.15.3_ugi4xkrfysqkt4c4y6hkyfj344
       mayumi: 0.0.3_sfoxds7t5ydpegc3knd667wn6m
-      mayumi-toc: link:..
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-router: 6.2.1_react@17.0.2
@@ -862,7 +862,6 @@ packages:
 
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
-    dev: false
 
   /@react-spring/animated/9.4.5_react@17.0.2:
     resolution: {integrity: sha512-KWqrtvJSMx6Fj9nMJkhTwM9r6LIriExDRV6YHZV9HKQsaolUFppgkOXpC+rsL1JEtEvKv6EkLLmSqHTnuYjiIA==}
@@ -872,7 +871,6 @@ packages:
       '@react-spring/shared': 9.4.5_react@17.0.2
       '@react-spring/types': 9.4.5
       react: 17.0.2
-    dev: false
 
   /@react-spring/core/9.4.5_react@17.0.2:
     resolution: {integrity: sha512-83u3FzfQmGMJFwZLAJSwF24/ZJctwUkWtyPD7KYtNagrFeQKUH1I05ZuhmCmqW+2w1KDW1SFWQ43RawqfXKiiQ==}
@@ -884,11 +882,9 @@ packages:
       '@react-spring/shared': 9.4.5_react@17.0.2
       '@react-spring/types': 9.4.5
       react: 17.0.2
-    dev: false
 
   /@react-spring/rafz/9.4.5:
     resolution: {integrity: sha512-swGsutMwvnoyTRxvqhfJBtGM8Ipx6ks0RkIpNX9F/U7XmyPvBMGd3GgX/mqxZUpdlsuI1zr/jiYw+GXZxAlLcQ==}
-    dev: false
 
   /@react-spring/shared/9.4.5_react@17.0.2:
     resolution: {integrity: sha512-JhMh3nFKsqyag0KM5IIM8BQANGscTdd0mMv3BXsUiMZrcjQTskyfnv5qxEeGWbJGGar52qr5kHuBHtCjQOzniA==}
@@ -898,11 +894,9 @@ packages:
       '@react-spring/rafz': 9.4.5
       '@react-spring/types': 9.4.5
       react: 17.0.2
-    dev: false
 
   /@react-spring/types/9.4.5:
     resolution: {integrity: sha512-mpRIamoHwql0ogxEUh9yr4TP0xU5CWyZxVQeccGkHHF8kPMErtDXJlxyo0lj+telRF35XNihtPTWoflqtyARmg==}
-    dev: false
 
   /@react-spring/web/9.4.5_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-NGAkOtKmOzDEctL7MzRlQGv24sRce++0xAY7KlcxmeVkR7LRSGkoXHaIfm9ObzxPMcPHQYQhf3+X9jepIFNHQA==}
@@ -916,7 +910,6 @@ packages:
       '@react-spring/types': 9.4.5
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-    dev: false
 
   /@rollup/plugin-alias/3.1.9_rollup@2.71.1:
     resolution: {integrity: sha512-QI5fsEvm9bDzt32k39wpOwZhVzRcL5ydcffUHMyLVaVaLeC70I8TJZ17F1z1eMoLu4E/UOcH9BWVkKpIKdrfiw==}
@@ -985,7 +978,6 @@ packages:
       react: '>= 16.3.0'
     dependencies:
       react: 17.0.2
-    dev: false
 
   /@tailwindcss/typography/0.5.2_tailwindcss@3.0.13:
     resolution: {integrity: sha512-coq8DBABRPFcVhVIk6IbKyyHUt7YTEC/C992tatFB+yEx5WGBQrCgsSFjxHUr8AWXphWckadVJbominEduYBqw==}
@@ -1827,7 +1819,6 @@ packages:
   /clsx/1.1.1:
     resolution: {integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==}
     engines: {node: '>=6'}
-    dev: false
 
   /code-point-at/1.1.0:
     resolution: {integrity: sha512-RpAVKQA5T63xEj6/giIbUEtZwJ4UFIc3ZtvEkiaUERylqe8xb5IvqcgOurZLahv93CLKfxcw5YI+DZcUBRyLXA==}
@@ -2032,7 +2023,6 @@ packages:
 
   /debounce/1.2.1:
     resolution: {integrity: sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==}
-    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -3609,7 +3599,6 @@ packages:
 
   /hotkeys-js/3.8.7:
     resolution: {integrity: sha512-ckAx3EkUr5XjDwjEHDorHxRO2Kb7z6Z2Sxul4MbBkN8Nho7XDslQsgMJT+CiJ5Z4TgRxxvKHEpuLE3imzqy4Lg==}
-    dev: false
 
   /htmlparser2/7.2.0:
     resolution: {integrity: sha512-H7MImA4MS6cw7nbyURtLPO1Tms7C5H602LRETv95z1MxO/7CP7rDVROehUYeYBUYEON94NXXDEPmZuq+hX4sog==}
@@ -4284,7 +4273,6 @@ packages:
 
   /lodash.keyby/4.6.0:
     resolution: {integrity: sha1-f2oavak/0k4icopNNh7YvLpaQ1Q=}
-    dev: false
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -4406,7 +4394,6 @@ packages:
       react-hotkeys-hook: 3.4.4_sfoxds7t5ydpegc3knd667wn6m
       react-popper-tooltip: 4.3.1_sfoxds7t5ydpegc3knd667wn6m
       react-use-measure: 2.1.1_sfoxds7t5ydpegc3knd667wn6m
-    dev: false
 
   /meow/6.1.1:
     resolution: {integrity: sha512-3YffViIt2QWgTy6Pale5QpopX/IvU3LPL03jOTqp6pGj3VjesdO/U8CuHMKpnQr4shCNCM5fd5XFFvIIl6JBHg==}
@@ -5046,7 +5033,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       '@babel/runtime': 7.16.7
-    dev: false
 
   /postcss-js/4.0.0_postcss@8.4.14:
     resolution: {integrity: sha512-77QESFBwgX4irogGVPgQ5s07vLvFqWr228qZY+w6lW599cRlK/HmnlivnnVUxkjHnCu4J16PDMHcH+e+2HbvTQ==}
@@ -5206,7 +5192,6 @@ packages:
 
   /react-fast-compare/3.2.0:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
-    dev: false
 
   /react-hotkeys-hook/3.4.4_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-vaORq07rWgmuF3owWRhgFV/3VL8/l2q9lz0WyVEddJnWTtKW+AOgU5YgYKuwN6h6h7bCcLG3MFsJIjCrM/5DvQ==}
@@ -5217,7 +5202,6 @@ packages:
       hotkeys-js: 3.8.7
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-    dev: false
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -5234,7 +5218,6 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-popper: 2.3.0_vov5yimr6vvxyufd6uigwwkst4
-    dev: false
 
   /react-popper/2.3.0_vov5yimr6vvxyufd6uigwwkst4:
     resolution: {integrity: sha512-e1hj8lL3uM+sgSR4Lxzn5h1GxBlpa4CQz0XLF8kx4MDrDRWY0Ena4c97PUeSX9i5W3UAfDP0z0FXCTQkoXUl3Q==}
@@ -5248,7 +5231,6 @@ packages:
       react-dom: 17.0.2_react@17.0.2
       react-fast-compare: 3.2.0
       warning: 4.0.3
-    dev: false
 
   /react-refresh/0.11.0:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
@@ -5285,7 +5267,6 @@ packages:
       debounce: 1.2.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-    dev: false
 
   /react/17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
@@ -6416,7 +6397,6 @@ packages:
     resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /wcwidth/1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}

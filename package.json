@@ -45,9 +45,11 @@
       "eslint --fix"
     ]
   },
-  "dependencies": {
-    "clsx": "^1.1.1",
+  "peerDependencies": {
     "mayumi": "^0.0.3"
+  },
+  "dependencies": {
+    "clsx": "^1.1.1"
   },
   "devDependencies": {
     "@aiou/eslint-config": "0.5.1",
@@ -63,6 +65,7 @@
     "esrua": "0.2.1",
     "husky": "7.0.4",
     "lint-staged": "11.2.6",
+    "mayumi": "^0.0.3",
     "prettier": "2.4.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
