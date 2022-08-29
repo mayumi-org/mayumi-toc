@@ -1,13 +1,13 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import clsx from 'clsx'
 import { styled, CSS } from 'mayumi/theme'
 import { Text } from 'mayumi/text'
 
 function useScrollSpy(selectors: string[], options?: IntersectionObserverInit) {
-  const [activeId, setActiveId] = React.useState<string>()
+  const [activeIds, setActiveIds] = React.useState<Record<string, boolean>>({})
   const observer = React.useRef<IntersectionObserver>()
-  React.useEffect(() => {
+  useEffect(() => {
     const elements = selectors.map((selector) => document.querySelector(selector))
     if (observer.current) {
       observer.current.disconnect()
@@ -15,7 +15,9 @@ function useScrollSpy(selectors: string[], options?: IntersectionObserverInit) {
     observer.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry?.isIntersecting) {
-          setActiveId(entry.target.getAttribute('id')!)
+          setActiveIds((prev) => ({ ...prev, [entry.target.getAttribute('id')!]: true }))
+        } else {
+          setActiveIds((prev) => ({ ...prev, [entry.target.getAttribute('id')!]: false }))
         }
       })
     }, options)
@@ -23,7 +25,9 @@ function useScrollSpy(selectors: string[], options?: IntersectionObserverInit) {
     return () => observer.current?.disconnect()
   }, [selectors, options])
 
-  return activeId
+  const activeSelector = selectors.find((s) => activeIds[s.slice(1)])
+
+  return activeSelector?.slice(1)
 }
 
 const StyledTOC = styled('div', {
@@ -163,13 +167,13 @@ type TOCProps = {
   className?: string
 }
 
+const options = {
+  rootMargin: '0% 0% -24% 0%',
+}
+
 export const TOC = ({ headings = [], type = 'dot', ...props }: TOCProps) => {
-  const activeId = useScrollSpy(
-    headings.map((h) => `#${h.id}`),
-    {
-      rootMargin: '0% 0% -24% 0%',
-    },
-  )
+  const selectors = useMemo(() => headings.map((h) => `#${h.id}`), [headings])
+  const activeId = useScrollSpy(selectors, options)
   const handleClickItem = useCallback((id: string) => {
     const el = document.querySelector(`#${id}`)
     if (el) {

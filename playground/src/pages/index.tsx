@@ -17,7 +17,7 @@ const Home = () => {
       <>
         {headings.map((h) => {
           return (
-            <div className="h-screen" key={h.id}>
+            <div className="h-1/3" key={h.id}>
               <h1 className="text-white text-lg" id={h.id}>
                 {h.title}
               </h1>
