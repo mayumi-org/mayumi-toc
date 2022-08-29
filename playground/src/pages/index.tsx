@@ -13,7 +13,7 @@ const headings = [
 const Home = () => {
   return (
     <div className="h-screen overflow-y-scroll bg-black">
-      <TOC headings={headings} />
+      <TOC css={{ position: 'fixed' }} headings={headings} />
       <>
         {headings.map((h) => {
           return (

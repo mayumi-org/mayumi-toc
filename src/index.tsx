@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React, { useCallback } from 'react'
 import clsx from 'clsx'
-import { styled } from 'mayumi/theme'
+import { styled, CSS } from 'mayumi/theme'
 import { Text } from 'mayumi/text'
 
 function useScrollSpy(selectors: string[], options?: IntersectionObserverInit) {
@@ -105,7 +105,6 @@ const StyledTOC = styled('div', {
   defaultVariants: {
     type: 'dot',
   },
-  position: 'fixed',
   right: '$0',
   top: '$0',
   '.toc-item-content': {
@@ -159,9 +158,12 @@ type TOCProps = {
     title: string
     id: string
   }[]
+  type?: 'dot' | 'line' | 'placeholder' | 'normal'
+  css?: CSS
+  className?: string
 }
 
-export const TOC = ({ headings = [] }: TOCProps) => {
+export const TOC = ({ headings = [], type = 'dot', ...props }: TOCProps) => {
   const activeId = useScrollSpy(
     headings.map((h) => `#${h.id}`),
     {
@@ -175,7 +177,7 @@ export const TOC = ({ headings = [] }: TOCProps) => {
     }
   }, [])
   return (
-    <StyledTOC type="placeholder">
+    <StyledTOC type={type} {...props}>
       <ul>
         {headings.map((h) => {
           return (
