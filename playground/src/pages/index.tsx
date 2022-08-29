@@ -1,20 +1,30 @@
 import React from 'react'
 import { TOC } from 'mayumi-toc'
 
+const headings = [
+  { title: 'Intro', id: 'intro' },
+  { title: 'Goals', id: 'goals' },
+  { title: 'Functions', id: 'functions' },
+  { title: 'Stacks', id: 'stacks' },
+  { title: 'Get Started', id: 'get-started' },
+  { title: 'Last', id: 'last' },
+]
+
 const Home = () => {
   return (
     <div className="h-screen overflow-y-scroll bg-black">
-      <TOC headings={['#title-1', '#title-2']} />
-      <div className="h-screen">
-        <h1 className="text-white text-lg" id="title-1">
-          title-1
-        </h1>
-      </div>
-      <div className="h-screen">
-        <h2 className="text-white text-lg" id="title-2">
-          title-2
-        </h2>
-      </div>
+      <TOC headings={headings} />
+      <>
+        {headings.map((h) => {
+          return (
+            <div className="h-screen" key={h.id}>
+              <h1 className="text-white text-lg" id={h.id}>
+                {h.title}
+              </h1>
+            </div>
+          )
+        })}
+      </>
     </div>
   )
 }

@@ -155,15 +155,21 @@ const Item = ({ className, ...props }: React.LiHTMLAttributes<{}>) => {
 }
 
 type TOCProps = {
-  headings?: string[]
+  headings?: {
+    title: string
+    id: string
+  }[]
 }
 
 export const TOC = ({ headings = [] }: TOCProps) => {
-  const activeId = useScrollSpy(headings, {
-    rootMargin: '0% 0% -24% 0%',
-  })
+  const activeId = useScrollSpy(
+    headings.map((h) => `#${h.id}`),
+    {
+      rootMargin: '0% 0% -24% 0%',
+    },
+  )
   const handleClickItem = useCallback((id: string) => {
-    const el = document.querySelector(id)
+    const el = document.querySelector(`#${id}`)
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' })
     }
@@ -174,12 +180,12 @@ export const TOC = ({ headings = [] }: TOCProps) => {
         {headings.map((h) => {
           return (
             <Item
-              className={clsx({ active: `#${activeId}` === h })}
-              onClick={() => handleClickItem(h)}
-              key={h}
+              className={clsx({ active: activeId === h.id })}
+              onClick={() => handleClickItem(h.id)}
+              key={h.id}
             >
               <Text p={true} size="sm">
-                {h}
+                {h.title}
               </Text>
             </Item>
           )
