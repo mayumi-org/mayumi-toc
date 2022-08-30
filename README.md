@@ -1,4 +1,4 @@
-# @mayumi/toc
+# @mayumi-org/toc
 
 ## install
 
@@ -10,7 +10,7 @@ pnpm i @mayumi/toc mayumi
 
 ```tsx
 import React from 'react'
-import { TOC } from '@mayumi/toc'
+import { TOC } from '@mayumi-org/toc'
 
 const headings = [
   { title: 'Intro', id: 'intro' },
