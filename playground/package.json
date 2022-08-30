@@ -1,0 +1,47 @@
+{
+  "name": "playground",
+  "version": "0.0.0",
+  "description": "mayumi-toc playground",
+  "private": "true",
+  "license": "MIT",
+  "homepage": "https://github.com/mayumi-org/mayui-toc#readme",
+  "repository": {
+    "url": "git+https://github.com/mayumi-org/mayui-toc.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/mayumi-org/mayui-toc/issues"
+  },
+  "author": {
+    "name": "JiangWeixian",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "scripts": {
+    "test": "echo test",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mayumi/toc": "workspace:*",
+    "@tailwindcss/typography": "0.5.2",
+    "clsx": "1.1.1",
+    "daisyui": "^2.15.3",
+    "mayumi": "^0.0.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-router": "6.2.1",
+    "react-router-dom": "6.2.1",
+    "tailwindcss": "3.0.13"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@types/tailwindcss": "^3.0.2",
+    "@vitejs/plugin-react": "^1.0.7",
+    "autoprefixer": "10.4.7",
+    "postcss": "8.4.14",
+    "vite": "^2.7.2",
+    "vite-plugin-pages": "^0.24.0"
+  }
+}
