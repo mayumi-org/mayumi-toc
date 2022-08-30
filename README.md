@@ -3,7 +3,7 @@
 ## install
 
 ```console
-pnpm i @mayumi/toc mayumi
+pnpm i @mayumi-org/toc mayumi
 ```
 
 ## usage

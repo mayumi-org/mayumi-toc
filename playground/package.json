@@ -23,7 +23,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mayumi/toc": "workspace:*",
+    "@mayumi-org/toc": "workspace:*",
     "@tailwindcss/typography": "0.5.2",
     "clsx": "1.1.1",
     "daisyui": "^2.15.3",
