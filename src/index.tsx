@@ -47,6 +47,7 @@ const StyledTOC = styled('div', {
         },
         '.toc-item-content': {
           opacity: 0,
+          width: 'calc(100% - $2)',
         },
       },
       line: {
@@ -60,6 +61,7 @@ const StyledTOC = styled('div', {
         },
         '.toc-item-content': {
           opacity: 0,
+          width: 'calc(100% - $4)',
         },
       },
       placeholder: {
@@ -69,6 +71,7 @@ const StyledTOC = styled('div', {
         '.toc-item-content': {
           position: 'relative',
           opacity: 1,
+          w: '$full',
           '&:hover': {
             '.mayumi-text': {
               opacity: 1,
@@ -102,6 +105,9 @@ const StyledTOC = styled('div', {
         },
         '.toc-item-content': {
           opacity: 0,
+          width: '$full',
+          p: '$0',
+          pr: '$3',
         },
       },
     },
@@ -111,8 +117,13 @@ const StyledTOC = styled('div', {
   },
   right: '$0',
   top: '$0',
+  '.toc-item-placeholder': {
+    display: 'none',
+  },
   '.toc-item-content': {
     transition: '$opacity',
+    boxSizing: 'border-box',
+    p: '0 $3',
   },
   '&:hover': {
     '.toc-item-content': {
@@ -126,9 +137,13 @@ const StyledTOC = styled('div', {
     display: 'flex',
     height: '$6',
     alignItems: 'center',
-    gap: '$3',
+    width: '$full',
+    boxSizing: 'border-box',
     '.mayumi-text': {
       color: 'inherit',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
     },
   },
   '.toc-item.active': {

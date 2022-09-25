@@ -6,15 +6,17 @@ const headings = [
   { title: 'Goals', id: 'goals' },
   { title: 'Functions', id: 'functions' },
   { title: 'Stacks', id: 'stacks' },
-  { title: 'Get Started', id: 'get-started' },
+  {
+    title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, veritatis.',
+    id: 'get-started',
+  },
   { title: 'Last', id: 'last' },
 ]
 
 const Home = () => {
   return (
-    <div className="h-screen overflow-y-scroll bg-black">
-      <TOC css={{ position: 'fixed' }} headings={headings} />
-      <>
+    <div className="grid grid-cols-12 h-screen overflow-y-scroll bg-black">
+      <div className="col-start-1 col-end-10">
         {headings.map((h) => {
           return (
             <div className="h-1/3" key={h.id}>
@@ -24,7 +26,10 @@ const Home = () => {
             </div>
           )
         })}
-      </>
+      </div>
+      <div className="col-start-11 col-end-13">
+        <TOC className="sticky top-0" type="placeholder" headings={headings} />
+      </div>
     </div>
   )
 }
