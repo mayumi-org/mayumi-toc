@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import React, { useCallback, useEffect, useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { styled, CSS } from 'mayumi/theme'
 import { Text } from 'mayumi/text'
@@ -7,6 +7,7 @@ import { Text } from 'mayumi/text'
 function useScrollSpy(selectors: string[], options?: IntersectionObserverInit) {
   const [activeIds, setActiveIds] = React.useState<Record<string, boolean>>({})
   const observer = React.useRef<IntersectionObserver>()
+  const [lastActiveId, setLastActiveId] = useState<string>()
   useEffect(() => {
     const elements = selectors.map((selector) => document.querySelector(selector))
     if (observer.current) {
@@ -15,6 +16,7 @@ function useScrollSpy(selectors: string[], options?: IntersectionObserverInit) {
     observer.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry?.isIntersecting) {
+          setLastActiveId(entry.target.getAttribute('id')!)
           setActiveIds((prev) => ({ ...prev, [entry.target.getAttribute('id')!]: true }))
         } else {
           setActiveIds((prev) => ({ ...prev, [entry.target.getAttribute('id')!]: false }))
@@ -25,9 +27,16 @@ function useScrollSpy(selectors: string[], options?: IntersectionObserverInit) {
     return () => observer.current?.disconnect()
   }, [selectors, options])
 
-  const activeSelector = selectors.find((s) => activeIds[s.slice(1)])
+  const activeId = useMemo(() => {
+    // always active first selector
+    const activeSelector = selectors.find((s) => activeIds[s.slice(1)])
+    // activeId startwith `#` remove `#`
+    // use last active id as fallback, make sure always has active seletor when scroll pass last one
+    // and next one not visible yet.
+    return activeSelector ? activeSelector.slice(1) : lastActiveId
+  }, [selectors, activeIds, lastActiveId])
 
-  return activeSelector?.slice(1)
+  return activeId
 }
 
 const StyledTOC = styled('div', {
