@@ -1,6 +1,7 @@
 {
   "name": "@mayumi-org/toc",
   "version": "0.0.2",
+  "packageManager": "pnpm@10.12.1",
   "license": "MIT",
   "homepage": "https://github.com/mayumi-org/mayumi-toc#readme",
   "repository": {
@@ -45,11 +46,9 @@
       "eslint --fix"
     ]
   },
-  "peerDependencies": {
-    "mayumi": "^0.0.3"
-  },
   "dependencies": {
-    "clsx": "^1.1.1"
+    "clsx": "^1.1.1",
+    "class-variance-authority": "^0.7.1"
   },
   "devDependencies": {
     "@aiou/eslint-config": "0.5.1",
@@ -65,7 +64,6 @@
     "esrua": "0.2.1",
     "husky": "7.0.4",
     "lint-staged": "11.2.6",
-    "mayumi": "^0.0.3",
     "prettier": "2.4.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
