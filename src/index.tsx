@@ -41,8 +41,8 @@ const Item = ({ className, type, isActive, ...props }: React.LiHTMLAttributes<{}
   return (
     <li className={clsx('toc-item', tocStyles({ isActive }), 'group', className)} {...props}>
       <span className={clsx('toc-item-prefix', prefixStyles({ type, isActive }))} />
-      <div className={clsx('toc-item-content', contentStyles({ type }), 'group-hover:opacity-100')}>
-        <div className={clsx('toc-item-placeholder', placeholderStyles({ isActive }), type === 'placeholder' && 'group-hover:opacity-0')} />
+      <div className={clsx('toc-item-content', contentStyles({ type, isActive }))}>
+        <div className={clsx('toc-item-placeholder', placeholderStyles({ type, isActive }))} />
         {props.children}
       </div>
     </li>
@@ -82,7 +82,7 @@ export const TOC = ({ headings = [], type = 'dot', className, ...props }: TOCPro
               onClick={() => handleClickItem(h.id)}
               key={h.id}
             >
-              <Text p={true} size="sm" className={clsx(textStyles({ type }), type === 'placeholder' && 'group-hover:opacity-100')}>
+              <Text p={true} size="sm" className={textStyles({ type })}>
                 {h.title}
               </Text>
             </Item>

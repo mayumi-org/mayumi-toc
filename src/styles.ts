@@ -27,13 +27,16 @@ export const contentStyles = cva(
   {
     variants: {
       type: {
-        dot: ['opacity-0'],
-        line: ['opacity-0'],
+        dot: ['opacity-0', 'group-hover:opacity-100'],
+        line: ['opacity-0', 'group-hover:opacity-100'],
         placeholder: [
           'relative',
           'opacity-100',
         ],
-        normal: ['opacity-0'],
+        normal: ['opacity-0', 'group-hover:opacity-100'],
+      },
+      isActive: {
+        true: ['opacity-100'],
       },
     },
     defaultVariants: {
@@ -54,13 +57,21 @@ export const placeholderStyles = cva(
     'h-1',
     'rounded-full',
     'bg-[rgb(55,55,55)]',
-    'opacity-100',
   ],
   {
     variants: {
+      type: {
+        dot: ['hidden'],
+        line: ['hidden'],
+        placeholder: ['opacity-100', 'group-hover:opacity-0'],
+        normal: ['hidden'],
+      },
       isActive: {
         true: ['bg-[rgb(127,127,127)]'],
       },
+    },
+    defaultVariants: {
+      type: 'dot',
     },
   }
 )
@@ -71,7 +82,7 @@ export const textStyles = cva(
   {
     variants: {
       type: {
-        placeholder: ['opacity-0'],
+        placeholder: ['opacity-0', 'group-hover:opacity-100'],
         dot: [],
         line: [],
         normal: [],
