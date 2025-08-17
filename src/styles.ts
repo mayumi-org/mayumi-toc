@@ -78,7 +78,7 @@ export const placeholderStyles = cva(
 
 // 文本样式
 export const textStyles = cva(
-  ['transition-opacity', 'text-inherit'],
+  ['transition-opacity', 'text-inherit', 'text-sm'],
   {
     variants: {
       type: {

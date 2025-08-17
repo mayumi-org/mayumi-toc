@@ -13,7 +13,7 @@ const headings = [
 const Home = () => {
   return (
     <div className="h-screen overflow-y-scroll bg-black">
-      <TOC className="fixed" headings={headings} type="normal" />
+      <TOC className="fixed" headings={headings} type="dot" />
       <>
         {headings.map((h) => {
           return (

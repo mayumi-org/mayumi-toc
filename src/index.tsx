@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React, { useCallback, useEffect, useMemo } from 'react'
 import clsx from 'clsx'
-import { Text } from 'mayumi/text'
 import { 
   tocStyles, 
   tocContainerStyles, 
@@ -82,9 +81,9 @@ export const TOC = ({ headings = [], type = 'dot', className, ...props }: TOCPro
               onClick={() => handleClickItem(h.id)}
               key={h.id}
             >
-              <Text p={true} size="sm" className={textStyles({ type })}>
+              <p className={textStyles({ type })}>
                 {h.title}
-              </Text>
+              </p>
             </Item>
           )
         })}
